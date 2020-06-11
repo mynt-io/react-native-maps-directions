@@ -212,6 +212,11 @@ declare module "react-native-maps-directions" {
      * Boolean to allow a polyline to be tappable and use the onPress function.
      */
     tappable?: boolean;
+    /**
+     * @boolean
+     * Boolean to allow a polyline to be animated on initialization.
+     */
+    animatedPolyline?: boolean;
   }
 
   export default class MapViewDirections extends React.Component<

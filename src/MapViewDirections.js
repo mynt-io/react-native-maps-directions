@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MapView from 'react-native-maps';
 import isEqual from 'lodash.isequal';
+import AnimatedPolyline from './AnimatedPolyline';
 
 const WAYPOINT_LIMIT = 10;
 
@@ -92,6 +93,7 @@ class MapViewDirections extends Component {
 			precision = 'low',
 			timePrecision = 'none',
 			channel,
+			animatedPolyline = false
 		} = props;
 
 		if (!apikey) {
@@ -301,11 +303,12 @@ class MapViewDirections extends Component {
 			language, // eslint-disable-line no-unused-vars
 			region, // eslint-disable-line no-unused-vars
 			precision,  // eslint-disable-line no-unused-vars
+			animatedPolyline, // eslint-disable-line no-unused-vars
 			...props
 		} = this.props;
 
 		return (
-			<MapView.Polyline coordinates={coordinates} {...props} />
+			animatedPolyline ? <AnimatedPolyline coordinates={coordinates} {...props} /> : <MapView.Polyline coordinates={coordinates} {...props} />
 		);
 	}
 
@@ -349,6 +352,7 @@ MapViewDirections.propTypes = {
 	precision: PropTypes.oneOf(['high', 'low']),
 	timePrecision: PropTypes.oneOf(['now', 'none']),
 	channel: PropTypes.string,
+	animatedPolyline: PropTypes.bool,
 };
 
 export default MapViewDirections;
