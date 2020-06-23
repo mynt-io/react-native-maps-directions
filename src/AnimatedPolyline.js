@@ -45,7 +45,7 @@ export default class AnimatedPolyline extends Component {
         clearInterval(self.interval);
       }
       completed += steps;
-    }, (this.props.interval || 10));
+    }, (this.props.interval || 70));
   }
   render() {
     return (
